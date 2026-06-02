@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="吳昌韋｜韋總裁 — 富邦人壽業務主任。資產配置、風險管理、投資思維。服務100+位客戶財務配置。" />
+  <meta name="theme-color" content="#0D1B2A" />
+  <meta property="og:title" content="韋總裁 | 吳昌韋" />
+  <meta property="og:description" content="做自己的富一代。資產配置｜傳承、投資、稅務、美金" />
+  <title>韋總裁 | 吳昌韋</title>
+
+  <!-- Brand font: Noto Sans TC（全站統一） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; background: #0D1B2A; }
+
+    /* ─── Design Tokens ──────────────────────────────────── */
+    :root {
+      --navy-950: #020A14;
+      --navy-900: #0D1B2A;   /* 沉夜深藍 */
+      --navy-800: #132438;   /* 輔助深色 */
+      --card-blue: #1E3A57;  /* 卡片藍 */
+      --navy-700: #445166;   /* 霧霾藍 */
+      --navy-600: #445166;
+      --navy-300: #B8C5D6;   /* 霧銀藍 */
+      --navy-100: #E2E8F0;
+      --gold-600:  #9C7C2E;  /* 深金：邊框、副標 */
+      --gold-500:  #C9A84C;  /* 皇室金：主強調 */
+      --gold-300:  #E2C378;  /* 淺金：hover */
+      --ivory:     #F5EDD6;  /* 暖象牙：主文字（深色版） */
+      --white:     #FFFFFF;
+      --glass-bg:  rgba(255,255,255,0.06);
+      --glass-border: rgba(202,168,76,0.15);
+      --transition: 220ms cubic-bezier(0.4,0,0.2,1);
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+    }
+
+    /* ─── Page ───────────────────────────────────────────── */
+    body {
+      font-family: 'Noto Serif TC', serif;
+      background: transparent;
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 0 48px;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");
+      background-size: 250px 250px;
+    }
+
+    /* ─── 背景人物像（毛玻璃卡疊在人像上，深藍 overlay 保色調）─── */
+    .bg-photo {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        radial-gradient(ellipse 70% 45% at 100% 0%, rgba(156,124,46,0.12) 0%, transparent 58%),
+        linear-gradient(180deg, rgba(13,27,42,0.55) 0%, rgba(13,27,42,0.74) 40%, rgba(13,27,42,0.92) 70%, #0D1B2A 92%),
+        url('me_bg.jpg');
+      background-size: cover, cover, cover;
+      background-position: center, center, center 4%;
+      background-repeat: no-repeat;
+    }
+
+    /* ─── Logo 印章（方向 B）角落浮水印 ──────────────────── */
+    .logo-stamp {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      width: 48px;
+      height: 56px;
+      border: 1.5px solid rgba(201,168,76,0.5);
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      background: rgba(13,27,42,0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      pointer-events: none;
+      z-index: 100;
+    }
+    .logo-stamp-char {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: #C9A84C;
+      line-height: 1;
+      margin-top: 6px;
+    }
+    .logo-stamp-sub {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 7px;
+      font-weight: 700;
+      color: var(--ivory);
+      letter-spacing: 3px;
+      margin-top: 3px;
+      margin-bottom: 5px;
+    }
+
+    /* ─── Background Glow ────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(30,58,87,0.6) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 30% at 80% 80%, rgba(201,168,76,0.07) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── Container ──────────────────────────────────────── */
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      padding: 0 20px;
+    }
+
+    /* ─── Hero ───────────────────────────────────────────── */
+    .hero {
+      padding-top: 52px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Avatar */
+    .avatar-wrap {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+    }
+    .avatar-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-500), var(--navy-800), var(--gold-600));
+      z-index: 0;
+    }
+    .avatar {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--navy-800);
+      /* Placeholder initials shown via ::after on wrapper when no src */
+    }
+    /* Initials fallback (shown when avatar.onerror fires) */
+    .avatar-initials {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1E3A57, #0D1B2A);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--gold-500);
+      letter-spacing: 0.05em;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .avatar-initials.show { opacity: 1; }
+
+    .name {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.75rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+      color: var(--ivory);
+    }
+    .sub-name {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--navy-300);
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+    .tagline {
+      margin-top: 14px;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold-500);
+      letter-spacing: 0.1em;
+    }
+
+    /* Social proof badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: rgba(202,138,4,0.15);
+      border: 1px solid rgba(202,138,4,0.35);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--gold-300);
+    }
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold-500);
+      flex-shrink: 0;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.75); }
+    }
+
+    /* Bio paragraph */
+    .bio {
+      margin-top: 20px;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--navy-300);
+      text-align: center;
+    }
+    .bio strong { color: var(--white); font-weight: 500; }
+
+    /* ─── Divider ─────────────────────────────────────────── */
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-600), transparent);
+      margin: 28px auto;
+      border-radius: 2px;
+    }
+
+    /* ─── Section Label ──────────────────────────────────── */
+    .section-label {
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: var(--gold-500);
+      margin-bottom: 16px;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 18px; height: 2px;
+      background: var(--gold-600);
+      vertical-align: middle;
+      margin-right: 10px;
+      transform: translateY(-3px);
+    }
+
+    /* ─── Service Cards ──────────────────────────────────── */
+    .services {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 8px;
+    }
+    .services::-webkit-scrollbar { display: none; }
+    .scroll-hint { text-align: center; font-size: 0.72rem; color: var(--navy-700); margin-top: 10px; letter-spacing: 0.08em; }
+    .service-card {
+      flex: 0 0 78%;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: rgba(30,58,87,0.4);
+      border: 1px solid rgba(156,124,46,0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .service-card:hover {
+      background: rgba(30,58,87,0.65);
+      border-color: rgba(201,168,76,0.4);
+      transform: translateY(-2px);
+    }
+    .service-card:active { transform: scale(0.98); }
+    .service-arrow {
+      display: none;
+    }
+    .service-card:hover .service-arrow {
+      color: var(--gold-500);
+      transform: translateX(3px);
+    }
+    .service-arrow svg { width: 16px; height: 16px; }
+    .service-icon {
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 124px;
+      border-radius: 0;
+      background: linear-gradient(135deg, #1E3A57, #0D1B2A);
+      border: none;
+      border-bottom: 1px solid rgba(156,124,46,0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .service-icon img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .service-icon::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(13,27,42,0.82), rgba(13,27,42,0.42));
+      z-index: 1;
+    }
+    .service-icon svg {
+      position: relative;
+      z-index: 2;
+      width: 46px;
+      height: 46px;
+      color: var(--gold-300);
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+    }
+    .service-text { flex: 1; min-width: 0; padding: 16px 18px 20px; }
+    .service-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ivory);
+      margin-bottom: 4px;
+      letter-spacing: 0.03em;
+    }
+    .service-desc {
+      font-size: 0.78rem;
+      color: var(--navy-300);
+      line-height: 1.6;
+    }
+
+    /* ─── Action Buttons ─────────────────────────────────── */
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    /* Primary CTA */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: var(--radius-pill);
+      font-family: inherit;
+      font-size: 0.94rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: filter var(--transition), transform var(--transition), box-shadow var(--transition);
+      min-height: 52px;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* CTA — gold gradient (consultation) */
+    .btn-primary {
+      background: linear-gradient(135deg, #C9A84C, #E2C378);
+      color: #0D1B2A;
+      box-shadow: 0 4px 24px rgba(201,168,76,0.35);
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .btn-primary:hover {
+      filter: brightness(1.07);
+      box-shadow: 0 6px 30px rgba(201,168,76,0.5);
+    }
+
+    /* LINE — green glass */
+    .btn-line {
+      background: rgba(0,185,85,0.18);
+      border: 1px solid rgba(0,185,85,0.4);
+      color: #4ADE80;
+    }
+    .btn-line:hover {
+      background: rgba(0,185,85,0.28);
+      border-color: rgba(0,185,85,0.65);
+    }
+
+    /* Instagram — glass */
+    .btn-ig {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--navy-300);
+    }
+    .btn-ig:hover {
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.25);
+      color: var(--white);
+    }
+
+    /* ─── Footer ─────────────────────────────────────────── */
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--navy-700);
+      letter-spacing: 0.06em;
+    }
+    .footer a {
+      color: var(--navy-600);
+      text-decoration: none;
+    }
+    .footer a:hover { color: var(--navy-300); }
+
+    /* ─── Brand Story ────────────────────────────────────── */
+    .story-card {
+      border-radius: var(--radius-lg);
+      background: rgba(19,36,56,0.7);
+      border: 1px solid rgba(156,124,46,0.2);
+      padding: 24px 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .story-question {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--ivory);
+      line-height: 1.5;
+      margin-bottom: 18px;
+      letter-spacing: 0.02em;
+    }
+    .story-body {
+      font-size: 0.875rem;
+      color: var(--navy-300);
+      line-height: 1.85;
+    }
+    .story-body p { margin-bottom: 14px; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--white); font-weight: 600; }
+    .story-highlight {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(201,168,76,0.08);
+      border-left: 3px solid var(--gold-500);
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--gold-300);
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── Image Gallery ──────────────────────────────────── */
+    .gallery-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+      /* hide scrollbar */
+      scrollbar-width: none;
+    }
+    .gallery-scroll::-webkit-scrollbar { display: none; }
+    .gallery-item {
+      flex: 0 0 72vw;
+      max-width: 280px;
+      scroll-snap-align: start;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      background: var(--navy-800);
+      aspect-ratio: 3/4;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* placeholder when image not yet added */
+    .gallery-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--navy-800), var(--navy-900));
+    }
+    .gallery-placeholder svg {
+      width: 32px;
+      height: 32px;
+      color: var(--navy-600);
+    }
+    .gallery-placeholder span {
+      font-size: 0.72rem;
+      color: var(--navy-600);
+      text-align: center;
+      padding: 0 16px;
+    }
+    .gallery-item img.loaded + .gallery-placeholder { display: none; }
+    /* caption */
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 14px;
+      background: linear-gradient(to top, rgba(2,6,23,0.85), transparent);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+    /* scroll dots indicator */
+    .gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .gallery-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--navy-700);
+      transition: background var(--transition), transform var(--transition);
+    }
+    .gallery-dot.active {
+      background: var(--gold-600);
+      transform: scale(1.3);
+    }
+
+    /* ─── Cash Flow Case Card ───────────────────────────── */
+    .case-card {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(30,41,59,0.7) 100%);
+      border: 1px solid rgba(202,138,4,0.3);
+      overflow: hidden;
+      position: relative;
+    }
+    .case-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-600), var(--gold-500), var(--gold-300));
+    }
+    .case-header {
+      padding: 16px 18px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .case-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(202,138,4,0.2);
+      border: 1px solid rgba(202,138,4,0.4);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--gold-300);
+      letter-spacing: 0.08em;
+    }
+    .case-year {
+      font-size: 0.7rem;
+      color: var(--navy-300);
+    }
+    .case-body {
+      padding: 0 18px 20px;
+    }
+    .case-amount {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 14px;
+    }
+    .case-currency {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gold-300);
+    }
+    .case-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .case-unit {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--gold-300);
+    }
+    .case-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+    .case-tag {
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--navy-300);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .case-tag.accent {
+      color: var(--gold-300);
+      background: rgba(201,168,76,0.1);
+      border-color: rgba(201,168,76,0.35);
+    }
+    .case-insight {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 14px;
+      font-size: 0.82rem;
+      color: var(--navy-300);
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    /* ─── Consultation CTA Banner ────────────────────────── */
+    .cta-banner {
+      display: block;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #1E3A57 0%, #0D1B2A 60%, #132438 100%);
+      border: 1px solid rgba(156,124,46,0.3);
+      padding: 24px 20px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(201,168,76,0.1), transparent);
+      pointer-events: none;
+    }
+    .cta-banner:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.18);
+      border-color: rgba(201,168,76,0.5);
+    }
+    .cta-banner:active { transform: scale(0.98); }
+    .cta-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(202,138,4,0.2);
+      border: 1px solid rgba(202,138,4,0.4);
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--gold-300);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .cta-headline {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--ivory);
+      line-height: 1.5;
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+    .cta-sub {
+      font-size: 0.82rem;
+      color: var(--navy-300);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .cta-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold-500);
+    }
+    .cta-arrow svg {
+      width: 16px;
+      height: 16px;
+      transition: transform var(--transition);
+    }
+    .cta-banner:hover .cta-arrow svg {
+      transform: translateX(4px);
+    }
+
+    /* ─── FAQ ───────────────────────────────────────────── */
+    .faq-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .faq-item {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+    .faq-item.open { border-color: rgba(201,168,76,0.4); }
+    .faq-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      text-align: left;
+    }
+    .faq-q {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ivory);
+      line-height: 1.45;
+    }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold-600);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-500);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      border-color: var(--gold-500);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-a {
+      padding: 0 20px 18px;
+      font-size: 14px;
+      color: var(--navy-300);
+      line-height: 1.75;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding-top: 14px;
+    }
+
+    /* ─── Process Steps ──────────────────────────────────── */
+    .process-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .process-step {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+    .process-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(156,124,46,0.12);
+      border: 1.5px solid var(--gold-600);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold-500);
+    }
+    .process-content { flex: 1; }
+    .process-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ivory);
+      margin-bottom: 3px;
+    }
+    .process-desc {
+      font-size: 12.5px;
+      color: var(--navy-300);
+      line-height: 1.55;
+    }
+
+    /* ─── Case profession icon（含金職業圖示）────────────── */
+    .case-prof { display: flex; align-items: center; gap: 9px; font-weight: 700; color: var(--ivory); font-size: 1rem; }
+    .case-icon {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.30), rgba(156,124,46,0.08));
+      border: 1px solid var(--gold-600);
+      display: flex; align-items: center; justify-content: center; color: var(--gold-500);
+    }
+    .case-icon svg { width: 20px; height: 20px; }
+    .case-amount .case-currency { font-size: 0.8rem; }
+    .case-note { text-align: center; font-size: 0.72rem; color: var(--navy-700); margin-top: 14px; line-height: 1.7; }
+
+    /* ─── Stats（數據化證明）──────────────────────────────── */
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .stat-card-wide { grid-column: span 2; }
+    .stat-card {
+      background: rgba(30,58,87,0.4);
+      border: 1px solid rgba(156,124,46,0.2);
+      border-radius: 16px; padding: 20px 14px; text-align: center;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    }
+    .stat-num {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.9rem; font-weight: 900; color: var(--white); line-height: 1.05;
+    }
+    .stat-num .u { font-size: 1rem; font-weight: 700; color: var(--gold-500); margin-left: 2px; }
+    .stat-label { font-size: 0.74rem; color: var(--navy-300); margin-top: 8px; letter-spacing: 0.04em; }
+
+    /* ─── Core Values（核心價值）─────────────────────────── */
+    .value-intro { font-size: 0.84rem; color: var(--navy-300); line-height: 1.7; margin-bottom: 16px; }
+    .value-list { display: flex; flex-direction: column; gap: 12px; }
+    .value-item {
+      display: flex; align-items: center; gap: 16px;
+      background: linear-gradient(135deg, rgba(30,58,87,0.55), rgba(19,36,56,0.42));
+      border: 1px solid rgba(156,124,46,0.28);
+      border-radius: 16px; padding: 18px 20px;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      position: relative; overflow: hidden;
+    }
+    .value-item::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+      background: linear-gradient(180deg, var(--gold-500), var(--gold-600));
+    }
+    .value-num {
+      flex-shrink: 0; font-size: 1.7rem; font-weight: 900;
+      color: var(--gold-500); line-height: 1; min-width: 32px; letter-spacing: -0.02em;
+    }
+    .value-text { flex: 1; font-size: 0.96rem; color: var(--ivory); line-height: 1.55; font-weight: 500; }
+    .value-text strong { color: var(--gold-300); font-weight: 700; }
+
+    /* ─── Reduced Motion ─────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+
+    /* ─── Fade In Entrance ───────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.55s ease forwards;
+    }
+    .fade-in:nth-child(1) { animation-delay: 0.05s; }
+    .fade-in:nth-child(2) { animation-delay: 0.12s; }
+    .fade-in:nth-child(3) { animation-delay: 0.19s; }
+    .fade-in:nth-child(4) { animation-delay: 0.26s; }
+    .fade-in:nth-child(5) { animation-delay: 0.33s; }
+    .fade-in:nth-child(6) { animation-delay: 0.40s; }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-photo" aria-hidden="true"></div>
+
+  <!-- Logo 印章方向 B（固定角落） -->
+  <div class="logo-stamp" aria-hidden="true">
+    <span class="logo-stamp-char">韋</span>
+    <span class="logo-stamp-sub">總裁</span>
+  </div>
+
+  <div class="container">
+
+    <!-- ── Hero ─────────────────────────────────────────── -->
+    <header class="hero">
+
+      <div class="avatar-wrap fade-in">
+        <!--
+          換成你的頭像：
+          <img class="avatar" src="你的照片路徑.jpg" alt="韋總裁 吳昌韋" />
+          若不換圖片，會自動顯示文字頭像
+        -->
+        <img
+          class="avatar"
+          src="avatar.jpg"
+          alt="韋總裁 吳昌韋"
+          onerror="this.style.opacity=0; this.nextElementSibling.classList.add('show')"
+        />
+        <div class="avatar-initials" aria-hidden="true">韋</div>
+      </div>
+
+      <h1 class="name fade-in">韋總裁</h1>
+      <p class="sub-name fade-in">吳昌韋</p>
+      <p class="tagline fade-in">做自己的富一代</p>
+
+      <div class="badge fade-in">
+        <span class="badge-dot"></span>
+        已服務 100+ 位客戶財務配置
+      </div>
+
+      <p class="bio fade-in">
+        我陪上班族做的事很簡單：<strong>把財務與保障規劃好</strong><br />
+        真正的安全感，從一次完整的規劃開始<br />
+        <strong>預約後，再給你最適合的方向</strong>
+      </p>
+
+    </header>
+
+    <div class="divider fade-in"></div>
+
+    <!-- ── Brand Story ───────────────────────────────────── -->
+    <section aria-label="品牌故事" style="margin-bottom: 28px;">
+      <p class="section-label fade-in">關於我</p>
+      <div class="story-card fade-in">
+        <p class="story-question">如果你明天不去上班，<br>錢還會進來嗎？</p>
+        <div class="story-body">
+          <p>大多數人的答案是不會。<br>不是因為不夠努力，是因為沒有人告訴你——<strong>錢是可以被設計的。</strong></p>
+          <p>財商不是叫你賭博、也不是叫你不工作。<br>是讓你在工作以外，<strong>還有一份為自己準備的底氣。</strong></p>
+          <p>我用這個思路陪著 100+ 位上班族做財務規劃，<br>幫他們把長期的財務目標，一步步規劃到位。</p>
+        </div>
+        <div class="story-highlight">有沒有機會，要算過才知道。<br>填一份問卷，我根據你現在的條件，給出最具體的方向。</div>
+      </div>
+    </section>
+
+    <div class="divider fade-in"></div>
+
+    <!-- ── Stats 數據化證明 ──────────────────────────────── -->
+    <section aria-label="服務數據" style="margin-bottom: 28px;">
+      <p class="section-label fade-in">數據化證明</p>
+      <div class="stats-grid fade-in" id="statsGrid">
+        <div class="stat-card">
+          <div class="stat-num"><span data-count="50">0</span><span class="u">+</span></div>
+          <div class="stat-label">服務家庭數</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num"><span data-count="100">0</span><span class="u">+</span></div>
+          <div class="stat-label">客戶數量</div>
+        </div>
+        <div class="stat-card stat-card-wide">
+          <div class="stat-num"><span data-count="500">0</span><span class="u">萬+</span></div>
+          <div class="stat-label">累積規劃總金額</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider fade-in"></div>
+
+    <!-- ── Services ──────────────────────────────────────── -->
+    <section aria-label="服務項目">
+      <p class="section-label fade-in">服務項目</p>
+      <div class="services">
+
+        <a
+          href="https://forms.gle/44gpc9N1KWcB7RWy6"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="service-card fade-in"
+          aria-label="全方位財務優化諮詢"
+        >
+          <div class="service-icon">
+            <img src="svc-1.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" />
+            </svg>
+          </div>
+          <div class="service-text">
+            <p class="service-title">全方位財務優化</p>
+            <p class="service-desc">我最核心的規劃目的——把收入、保障、稅務、資產通盤檢視，讓你的每一塊錢都用在對的位置。</p>
+          </div>
+          <span class="service-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+          </span>
+        </a>
+
+        <a
+          href="https://docs.google.com/forms/d/1m07Ayqsaws8EpV39YsNmt_WM1CgQpcUPAXmhKIiLg18/viewform"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="service-card fade-in"
+          aria-label="資產配置諮詢問卷"
+        >
+          <div class="service-icon">
+            <img src="svc-2.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+            </svg>
+          </div>
+          <div class="service-text">
+            <p class="service-title">資產配置</p>
+            <p class="service-desc">傳承規劃・投資策略・稅務優化・美金資產</p>
+          </div>
+          <span class="service-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+          </span>
+        </a>
+
+        <a
+          href="https://docs.google.com/forms/d/1FUVOstAikJQ8zcJAeojQ5flykAB_zQsh5JV4Tj1Cf_4/viewform"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="service-card fade-in"
+          aria-label="保障健診一對一諮詢"
+        >
+          <div class="service-icon">
+            <img src="svc-3.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+            </svg>
+          </div>
+          <div class="service-text">
+            <p class="service-title">風險管理</p>
+            <p class="service-desc">家庭保障規劃・財務安全缺口檢視</p>
+          </div>
+          <span class="service-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+          </span>
+        </a>
+
+        <a
+          href="https://docs.google.com/forms/d/10qop-cvKAVh-67O6mZdBR8sY-j4FJIMC3nS4AoQPxPs/viewform"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="service-card fade-in"
+          aria-label="投資思維與資產活化"
+        >
+          <div class="service-icon">
+            <img src="svc-4.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+            </svg>
+          </div>
+          <div class="service-text">
+            <p class="service-title">投資思維</p>
+            <p class="service-desc">財商觀念傳遞・長期理財思維建立</p>
+          </div>
+          <span class="service-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+          </span>
+        </a>
+
+      </div>
+      <p class="scroll-hint fade-in">← 左右滑動看更多服務 →</p>
+    </section>
+
+    <div class="divider fade-in"></div>
+
+    <!-- ── Core Values 核心價值 ──────────────────────────── -->
+    <section aria-label="核心價值" style="margin-bottom: 28px;">
+      <p class="section-label fade-in">我能帶給你的價值</p>
+      <p class="value-intro fade-in">財務規劃不是賣你一張保單，而是讓你的每一塊錢，都有方向、有效率、有底氣。</p>
+      <div class="value-list">
+        <div class="value-item fade-in">
+          <span class="value-num">01</span>
+          <p class="value-text">讓你的錢，<strong>更有效率地長期累積</strong></p>
+        </div>
+        <div class="value-item fade-in">
+          <span class="value-num">02</span>
+          <p class="value-text">讓你繳出去的<strong>稅與成本，越來越精省</strong></p>
+        </div>
+        <div class="value-item fade-in">
+          <span class="value-num">03</span>
+          <p class="value-text">讓你在每個人生階段，<strong>都有足夠的財務底氣</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider fade-in"></div>
+
+    <!-- ── FAQ ───────────────────────────────────────────── -->
+    <section aria-label="常見問題" style="margin-bottom: 28px;">
+      <p class="section-label fade-in">常見問題</p>
+      <div class="faq-list">
+
+        <div class="faq-item fade-in">
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q">薪水不高，也可以做財務規劃嗎？</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p class="faq-a">財務規劃的核心不是「你賺了多少」，而是「你分配了多少」。月薪 3 萬和月薪 10 萬的人，面臨的問題其實一樣——錢不夠用、不知道存到哪、未來沒有安全感。差別在於，越早開始規劃，時間就越站在你這邊。薪水可以靠努力提升，但習慣一旦養成，財富就開始自動積累。</p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q">跟保險業務談，是不是一定會被推銷？</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p class="faq-a">保險只是其中一個工具。第一次諮詢，我不會帶任何商品來談——我們會先聊你的目標：想在幾歲退休、希望退休後過什麼樣的生活、現在最擔心的事是什麼。真正的規劃是讓你的錢做最有效率的事，而不是多賣你一張保單。</p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q">我已經有在投資了，還需要諮詢嗎？</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p class="faq-a">投資是很好的開始，但它只是財務規劃的一環。很多人有在存股、買基金，卻沒想過：如果突然失能或重病，這些資產能繼續運作嗎？財務規劃是把「讓錢變多」和「不讓錢消失」同時放進來考慮——讓你的投資靠設計穩，不靠運氣。</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── 客戶規劃實例（合規版：放實拍照，不放收入/存摺截圖） ── -->
+    <section aria-label="規劃現場" style="margin-bottom: 28px;">
+      <p class="section-label fade-in">規劃現場</p>
+      <div class="gallery-scroll fade-in" id="gallery-income">
+        <!--
+          ⚠️ 合規提醒：這裡請放「與客戶討論、工作日常、活動現場」等實拍照，
+          不要放存摺、入帳金額、配息截圖。命名為 case-1.jpg / case-2.jpg / case-3.jpg
+        -->
+        <div class="gallery-item">
+          <img src="case-1.jpg" alt="與客戶進行財務規劃討論"
+            onload="this.classList.add('loaded')"
+            onerror="this.style.display='none'" />
+          <div class="gallery-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" /></svg>
+            <span>放入 case-1.jpg</span>
+          </div>
+          <div class="gallery-caption">面談｜先聽你的狀況與目標</div>
+        </div>
+        <div class="gallery-item">
+          <img src="case-2.jpg" alt="協助上班族做提早退休規劃"
+            onload="this.classList.add('loaded')"
+            onerror="this.style.display='none'" />
+          <div class="gallery-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" /></svg>
+            <span>放入 case-2.jpg</span>
+          </div>
+          <div class="gallery-caption">規劃｜把方向落成具體方案</div>
+        </div>
+        <div class="gallery-item">
+          <img src="case-3.jpg" alt="協助國小教師做長期保障與退休規劃"
+            onload="this.classList.add('loaded')"
+            onerror="this.style.display='none'" />
+          <div class="gallery-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" /></svg>
+            <span>放入 case-3.jpg</span>
+          </div>
+          <div class="gallery-caption">工具｜陪你看懂自己的財務</div>
+        </div>
+      </div>
+      <div class="gallery-dots" id="dots-income">
+        <div class="gallery-dot active"></div>
+        <div class="gallery-dot"></div>
+        <div class="gallery-dot"></div>
+      </div>
+    </section>
+
+    <div class="divider fade-in"></div>
+
+    <!-- ── 客戶規劃案例 ────────────────────────────────── -->
+    <section aria-label="客戶規劃案例" style="margin-bottom: 28px;">
+      <p class="section-label fade-in">客戶規劃案例</p>
+
+      <!-- 案例 1：護理師 -->
+      <div class="case-card fade-in">
+        <div class="case-header">
+          <span class="case-prof">
+            <span class="case-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 8v8M8 12h8"/></svg></span>
+            護理師
+          </span>
+          <span class="case-badge">匿名真實案例</span>
+        </div>
+        <div class="case-body">
+          <div class="case-amount">
+            <span class="case-currency">每月定期定額</span>
+            <span class="case-number" data-count="8000">0</span>
+            <span class="case-unit">元</span>
+          </div>
+          <p class="case-insight">輪班三年、薪水不低卻總是月底見底。我們把收入分流、設定看得到的長期目標，現在她每年安心出國一次，清楚每一步都走在計畫上。</p>
+        </div>
+      </div>
+
+      <!-- 案例 2：工程師（自媒體而來） -->
+      <div class="case-card fade-in" style="margin-top: 14px;">
+        <div class="case-header">
+          <span class="case-prof">
+            <span class="case-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg></span>
+            工程師
+          </span>
+          <span class="case-badge">從 IG 自媒體而來</span>
+        </div>
+        <div class="case-body">
+          <div class="case-amount">
+            <span class="case-currency">資產配置</span>
+            <span class="case-number" data-count="150">0</span>
+            <span class="case-unit">萬</span>
+          </div>
+          <p class="case-insight">在 IG 看到我分享的財務內容後主動私訊。高薪卻沒方向，我們把資產通盤配置、補上保障缺口，讓每一塊錢都用在對的位置。</p>
+        </div>
+      </div>
+
+      <!-- 案例 3：軍職 -->
+      <div class="case-card fade-in" style="margin-top: 14px;">
+        <div class="case-header">
+          <span class="case-prof">
+            <span class="case-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M12 8.3l1.1 2.3 2.5.3-1.9 1.7.5 2.5L12 14.1 9.7 15.4l.5-2.5-1.9-1.7 2.5-.3z"/></svg></span>
+            軍職
+          </span>
+          <span class="case-badge">匿名真實案例</span>
+        </div>
+        <div class="case-body">
+          <div class="case-amount">
+            <span class="case-currency">每月定期定額</span>
+            <span class="case-number" data-count="10000">0</span>
+            <span class="case-unit">元</span>
+          </div>
+          <p class="case-insight">穩定軍餉，想趁退伍前就超前部署。用紀律的定期定額，幫他把未來的選擇權，現在就握在手裡。</p>
+        </div>
+      </div>
+
+      <p class="case-note fade-in">以上皆為匿名真實案例｜規劃規模從每月 5,000 元定期定額，到 170 萬資產配置不等</p>
+
+    </section>
+
+    <!-- ── Process Steps ─────────────────────────────────── -->
+    <section aria-label="諮詢流程" style="margin-bottom: 28px;">
+      <p class="section-label fade-in">諮詢流程</p>
+      <div class="process-list fade-in">
+
+        <div class="process-step">
+          <div class="process-num">1</div>
+          <div class="process-content">
+            <p class="process-title">第一階段：線上面談</p>
+            <p class="process-desc">先線上聊聊你的狀況、目標與擔心，不推銷、不施壓</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="process-num">2</div>
+          <div class="process-content">
+            <p class="process-title">分析 & 規劃</p>
+            <p class="process-desc">了解你現有的資產與保障結構，給出合適的配置方向</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="process-num">3</div>
+          <div class="process-content">
+            <p class="process-title">執行規劃與實際陪跑</p>
+            <p class="process-desc">方向確認後一起執行，並在每個人生階段持續追蹤、調整、提醒——陪你把計畫真正落地，而不是規劃完就結束。</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider fade-in"></div>
+
+    <!-- ── Consultation CTA Banner ─────────────────────── -->
+    <section aria-label="諮詢表單" style="margin-bottom: 28px;">
+      <a
+        href="https://forms.gle/44gpc9N1KWcB7RWy6"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cta-banner fade-in"
+        aria-label="前往理財諮詢表單"
+      >
+        <span class="cta-tag">免費諮詢</span>
+        <p class="cta-headline">如果你的財務<br>有人陪你一起規劃<br>你會想先解決什麼？</p>
+        <p class="cta-sub">填一份表單，10分鐘後<br>我會根據你的狀況給出最適合的方向。</p>
+        <span class="cta-arrow">
+          立即填寫諮詢表單
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </span>
+      </a>
+    </section>
+
+    <!-- ── Action Buttons ─────────────────────────────────── -->
+    <section aria-label="聯絡方式">
+      <p class="section-label fade-in">立即聯絡</p>
+      <div class="actions">
+
+        <!-- Primary CTA: Consultation Form -->
+        <a
+          href="https://forms.gle/44gpc9N1KWcB7RWy6"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary fade-in"
+          aria-label="預約免費諮詢"
+        >
+          <!-- Calendar icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+          </svg>
+          預約免費諮詢
+        </a>
+
+        <!-- LINE -->
+        <a
+          href="https://line.me/ti/p/WaJKbuh6FV"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-line fade-in"
+          aria-label="LINE 加好友"
+        >
+          <!-- LINE SVG logo -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+          </svg>
+          LINE 加好友
+        </a>
+
+        <!-- Instagram -->
+        <a
+          href="https://www.instagram.com/changw_0331/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-ig fade-in"
+          aria-label="Instagram 追蹤"
+        >
+          <!-- Instagram icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          Instagram @changw_0331
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── Footer ─────────────────────────────────────────── -->
+    <footer class="footer fade-in">
+      <p>© 2026 吳昌韋・韋總裁</p>
+      <p style="margin-top:4px;">做自己的富一代</p>
+    </footer>
+
+  </div>
+  <script>
+    // Gallery scroll dot indicator
+    function initGalleryDots(galleryId, dotsId) {
+      const gallery = document.getElementById(galleryId);
+      const dots = document.querySelectorAll('#' + dotsId + ' .gallery-dot');
+      if (!gallery || !dots.length) return;
+      gallery.addEventListener('scroll', () => {
+        const index = Math.round(gallery.scrollLeft / gallery.offsetWidth);
+        dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      }, { passive: true });
+    }
+    initGalleryDots('gallery-income', 'dots-income');
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        document.querySelectorAll('.faq-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // 數字跳動（數據區 + 案例配置金額，含千分位）
+    (function () {
+      var nums = document.querySelectorAll('[data-count]');
+      if (!nums.length) return;
+      function fmt(v) { return v.toLocaleString('en-US'); }
+      function countUp(el, target) {
+        var start = performance.now(), dur = 1500;
+        function tick(now) {
+          var t = Math.min(1, (now - start) / dur);
+          el.textContent = fmt(Math.round(target * (1 - Math.pow(1 - t, 3))));
+          if (t < 1) requestAnimationFrame(tick); else el.textContent = fmt(target);
+        }
+        requestAnimationFrame(tick);
+      }
+      if (!('IntersectionObserver' in window)) {
+        nums.forEach(function (n) { n.textContent = fmt(parseInt(n.dataset.count, 10)); });
+        return;
+      }
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting && !e.target.dataset.done) {
+            e.target.dataset.done = '1';
+            countUp(e.target, parseInt(e.target.dataset.count, 10));
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      nums.forEach(function (n) { io.observe(n); });
+    })();
+  </script>
+</body>
+</html>
