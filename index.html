@@ -1376,7 +1376,7 @@
 
         <!-- Instagram -->
         <a
-          href="https://www.instagram.com/changw_0331/"
+          href="https://www.instagram.com/ceo.wei/"
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn-ig fade-in"
@@ -1386,7 +1386,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
-          Instagram @changw_0331
+          Instagram @ceo.wei
         </a>
 
       </div>
@@ -1454,6 +1454,54 @@
         });
       }, { threshold: 0.4 });
       nums.forEach(function (n) { io.observe(n); });
+    })();
+  </script>
+  <script>
+    /* wei-card-stats 匿名流量統計（fail-silent：任何錯誤不影響頁面） */
+    (function () {
+      try {
+        var EP = 'https://wei-card-stats.wei-crm.workers.dev/hit';
+        function send(p) {
+          try {
+            var d = JSON.stringify(p);
+            if (navigator.sendBeacon) {
+              navigator.sendBeacon(EP, new Blob([d], { type: 'text/plain' }));
+            } else {
+              fetch(EP, { method: 'POST', body: d, keepalive: true, mode: 'cors' }).catch(function () {});
+            }
+          } catch (e) {}
+        }
+        var src = '';
+        try { src = new URLSearchParams(location.search).get('src') || ''; } catch (e) {}
+        if (['ig', 'line', 'direct', 'other'].indexOf(src) === -1) {
+          var r = document.referrer || '';
+          if (/instagram\./.test(r)) src = 'ig';
+          else if (/line\.me|liff\.line|\.line-apps\./.test(r)) src = 'line';
+          else if (!r) src = 'direct';
+          else src = 'other';
+        }
+        var ns = 0;
+        try {
+          if (!sessionStorage.getItem('_wcs')) { sessionStorage.setItem('_wcs', '1'); ns = 1; }
+        } catch (e) { ns = 1; }
+        send({ t: 'pageview', src: src, ns: ns });
+        document.addEventListener('click', function (ev) {
+          try {
+            var el = ev.target;
+            while (el && el.tagName !== 'A') el = el.parentElement;
+            if (!el || !el.href) return;
+            var h = el.href;
+            if (h.indexOf('line.me') > -1) {
+              send({ t: 'click_line', src: src });
+            } else if (h.indexOf('forms.gle') > -1) {
+              send({ t: 'click_form', src: src, label: '諮詢表單' });
+            } else if (h.indexOf('docs.google.com/forms') > -1) {
+              var m = h.match(/\/d\/([^/]+)/);
+              send({ t: 'click_form', src: src, label: '問卷_' + (m ? m[1].slice(0, 8) : '未知') });
+            }
+          } catch (e) {}
+        }, true);
+      } catch (e) {}
     })();
   </script>
 </body>
